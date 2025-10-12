@@ -5,7 +5,7 @@ int main()
     float Celsius;
     float farenheit;
     float   kelvin;
-    Celsius = 37;
-    farenheit = 32 + Celsius * (9.0/5.0) ;
-    cout << Celsius << " degree celcius is " << farenheit << " degree farenheit"<< endl;
+    farenheit = 37;
+    Celsius = (farenheit - 32) * (5.0/9.0) ;
+    cout << farenheit << " degree farenheit is " << Celsius << " degree celsius"<< endl;
 }
