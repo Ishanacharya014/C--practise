@@ -22,6 +22,15 @@ public:
         salary = salary;
     }
 
+    Teacher(Teacher &orgObj)
+    {
+        cout<<"I am custom copy constructor.. \n";
+        this->name = orgObj.name;
+        this->dept = orgObj.dept;
+        this->subject = orgObj.subject;
+        this->salary = orgObj.salary;
+    }
+
     
     void channgeDept(string newDept)
     {
@@ -50,7 +59,9 @@ int main()
 {
     Teacher t1("Shraddha","Computer Science","C++",25000);
     
-    t1.getinfo();
+
+    Teacher t2(t1);
+    t2.getinfo();
     return 0;
     
 }
