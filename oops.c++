@@ -5,23 +5,24 @@ private:
         double salary;
     
 public:
+    string name;
+    string dept;
+    string subject;
+
     Teacher()
     {
         dept = "Computer Science";
     }
 
-    Teacher(string n,string d,string s,double sal)
+    Teacher(string name,string dept,string subject,double salary)
     {
-        name = n;
-        dept = d;
-        subject = s;
-        salary = sal;
+        this->name = name;
+        this->dept = dept;
+        this->subject = subject;
+        salary = salary;
     }
 
-    string name;
-    string dept;
-    string subject;
-
+    
     void channgeDept(string newDept)
     {
         dept = newDept;
