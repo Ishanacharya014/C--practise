@@ -1,67 +1,42 @@
 #include<iostream>
 using namespace std;
-class Teacher{
-private:
-        double salary;
-    
+
+
+class Student {
 public:
-    string name;
-    string dept;
-    string subject;
+  string name;
+  double* cgpaPtr;
 
-    Teacher()
-    {
-        dept = "Computer Science";
-    }
+  Student(string name,double cgpa)
+  {
+    this->name = name;
+    cgpaPtr = new double;
+    *cgpaPtr = cgpa;
+  }
 
-    Teacher(string name,string dept,string subject,double salary)
-    {
-        this->name = name;
-        this->dept = dept;
-        this->subject = subject;
-        salary = salary;
-    }
+  Student(Student &obj)
+  {
+    this->name = obj.name;
+    cgpaPtr = new double;
+    *cgpaPtr = *obj.cgpaPtr;
+  }
 
-    Teacher(Teacher &orgObj)
-    {
-        cout<<"I am custom copy constructor.. \n";
-        this->name = orgObj.name;
-        this->dept = orgObj.dept;
-        this->subject = orgObj.subject;
-        this->salary = orgObj.salary;
-    }
+  void getInfo()
+  {
+    cout<<"Name: "<<name<<endl;
+    cout<<"Cgpa: "<<*cgpaPtr<<endl;
+  }
 
-    
-    void channgeDept(string newDept)
-    {
-        dept = newDept;
-    }
-
-    void setSalary(double s)
-    {
-        salary = s;
-    }
-
-    double getSalary()
-    {
-        return salary;
-    }
-
-    void getinfo()
-    {
-        cout<<"Name: "<<name<<endl;
-        cout<<"Subject: "<<subject<<endl;
-        cout<<"Department: "<<dept<<endl;
-    }
 };
 
 int main()
 {
-    Teacher t1("Shraddha","Computer Science","C++",25000);
+    Student s1("rahul kumar",8.9);
     
-
-    Teacher t2(t1);
-    t2.getinfo();
+    s1.getInfo();
+    Student s2(s1);
+    *(s2.cgpaPtr) = 9.2;
+    s1.getInfo();
     return 0;
     
 }
