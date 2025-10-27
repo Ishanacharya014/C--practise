@@ -1,12 +1,12 @@
 #include<iostream>
 using namespace std;
-void reverseArray(int* arr, int size) {
+void reverseArray(int *arr, int size) {
     int *start = arr;
     int *end = arr + size - 1;
     while(start < end) {
-        int temp = *start;
+        int r = *start;
         *start = *end;
-        *end = temp;
+        *end = r;
         start++;
         end--;
     }
